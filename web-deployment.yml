@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: web-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: web-app
+    spec:
+      containers:
+      - name: web-app
+        image: jtkpiotr/kubernetes-playground:v1.0
+        command:
+          - "rails"
+          - "s"
+        ports:
+        - containerPort: 3000
