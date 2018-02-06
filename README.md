@@ -61,11 +61,18 @@ sudo systemctl restart kubelet
 
 And that's it :) We've just created our cluster.
 
-## Deploy application and database
+## Deploy application and a database
+```bash
+kubectl apply -f web-deployment.yml
+kubectl apply -f web-service.yml
+kubectl apply -f db-deployment.yml
+kubectl apply -f db-service.yml
+```
 
 
 ## Helpful Commands
 ```bash
+sudo kubeadm token create --print-join-command
 sudo tcpdump -pni enp0s8 tcp port 6443
 sudo netstat -tp
 sudo nsenter --net=/var/run/docker/netns/<NETNS> <COMMAND>
