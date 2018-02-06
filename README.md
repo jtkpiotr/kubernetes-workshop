@@ -69,6 +69,21 @@ kubectl apply -f db-deployment.yml
 kubectl apply -f db-service.yml
 ```
 
+## Add Dashboard UI Plugin
+```bash
+kubectl apply -f kubernetes-dashboard.yml
+kubectl apply -f dashboard-role.yml
+```
+
+Enable HTTP proxy to access Dashboard from the host machine
+```bash
+kubectl proxy --address=0.0.0.0 --accept-hosts='^*$'
+```
+
+Access dashboard from your host machine
+```bash
+http://192.168.188.10:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+```
 
 ## Helpful Commands
 ```bash

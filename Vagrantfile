@@ -10,7 +10,7 @@ SHELL
     subconfig.vm.hostname = "MASTER"
     subconfig.vm.network :private_network, ip: "192.168.188.10"
     subconfig.vm.provision "shell",
-      inline: "sudo cp /vagrant/{db-deployment.yml,db-service.yml,web-deployment.yml,web-service.yml,kube-flannel.yml} ."
+      inline: "sudo cp /vagrant/{db-deployment.yml,db-service.yml,web-deployment.yml,web-service.yml,kube-flannel.yml,kubernetes-dashboard.yml,dashboard-role.yml} ."
   end
 
   config.vm.define "node1" do |subconfig|
