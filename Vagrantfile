@@ -16,10 +16,14 @@ SHELL
   config.vm.define "node1" do |subconfig|
     subconfig.vm.hostname = "NODE1"
     subconfig.vm.network :private_network, ip: "192.168.188.11"
+    subconfig.vm.provision "shell",
+      inline: "docker pull jtkpiotr/kubernetes-playground:v1.0"
   end
 
   config.vm.define "node2" do |subconfig|
     subconfig.vm.hostname = "NODE2"
     subconfig.vm.network :private_network, ip: "192.168.188.12"
+    subconfig.vm.provision "shell",
+      inline: "docker pull jtkpiotr/kubernetes-playground:v1.0"
   end
 end
